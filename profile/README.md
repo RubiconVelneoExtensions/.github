@@ -27,28 +27,20 @@ flowchart TD
     end
 
     subgraph Hub ["🌉 Puente Central MCP (127.0.0.1:21845)"]
-        MCP["Puente Guía Hub (server.js)
-stdio + HTTP JSON-RPC"]
+        MCP["Puente Guía Hub (server.js)<br/>stdio + HTTP JSON-RPC"]
     end
 
     subgraph Extensions ["🧩 Extensiones Oficiales en vDevelop"]
-        PG["Puente Guía
-(McpBridge & Asistente)"]
-        CS["Code Sync 2D
-(Sincronizador Incremental)"]
-        CI["Code IDE
-(Visor & Auditor AST)"]
-        VI["Variables IDE
-(Gestión UIA)"]
-        BO["Buscador Objetos
-(Índice en Memoria)"]
+        PG["Puente Guía<br/>(McpBridge & Asistente)"]
+        CS["Code Sync 2D<br/>(Sincronizador Incremental)"]
+        CI["Code IDE<br/>(Visor & Auditor AST)"]
+        VI["Variables IDE<br/>(Gestión UIA)"]
+        BO["Buscador Objetos<br/>(Índice en Memoria)"]
     end
 
     subgraph Velneo ["🏢 Entorno de Desarrollo y Runtime Velneo"]
-        VD["Velneo vDevelop
-(Diseño, Procesos, MTI)"]
-        VC["Velneo vClient
-(Runtime de Datos en Vivo)"]
+        VD["Velneo vDevelop<br/>(Diseño, Procesos, MTI)"]
+        VC["Velneo vClient<br/>(Runtime de Datos en Vivo)"]
     end
 
     LLM <-->|Herramientas MCP| MCP
