@@ -3,6 +3,8 @@
 > Suite corporativa de extensiones oficiales, herramientas de desarrollo asistido por IA y automatización para el ecosistema **Velneo vDevelop** y **vClient Runtime**.  
 > Diseñado, desarrollado y mantenido por el equipo de ingeniería de **[Rubicon Consultoría y Desarrollo de Software SLU](https://www.rubiconsulting.es/)**.
 
+> 🔒 **Acceso Interno**: Si eres miembro de Rubicon, accede al portal interno de desarrollo y guías de puesto de trabajo en [**.github-private**](https://github.com/RubiconVelneoExtensions/.github-private).
+
 ---
 
 ## 🛠️ Tecnologías y Compatibilidad
