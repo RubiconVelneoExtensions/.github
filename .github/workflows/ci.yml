@@ -1,0 +1,38 @@
+name: CI - Verificaciones de Calidad
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    name: Lint & Verificación BOM
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Verificar codificación UTF-8 sin BOM
+        run: |
+          echo "Comprobando presencia de BOM en archivos de texto..."
+          ERRORS=0
+          while IFS= read -r -d '' file; do
+            if head -c 3 "$file" | grep -q $'\xEF\xBB\xBF'; then
+              echo "::error file=$file::El archivo contiene UTF-8 BOM, lo cual está prohibido por los estándares corporativos."
+              ERRORS=$((ERRORS + 1))
+            fi
+          done < <(find . -type f \( -name "*.md" -o -name "*.json" -o -name "*.yml" -o -name "*.yaml" \) -print0)
+          
+          if [ $ERRORS -gt 0 ]; then
+            echo "Se encontraron $ERRORS archivos con BOM."
+            exit 1
+          fi
+          echo "Todos los archivos cumplen con el estándar UTF-8 sin BOM."
+
+      - name: Verificar enlaces básicos en Markdown
+        run: |
+          echo "Verificando sintaxis de enlaces en archivos Markdown..."
+          grep -rn "\[.*\]()" . || true
